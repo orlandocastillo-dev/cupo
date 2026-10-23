@@ -4,6 +4,8 @@ Reservas en línea para negocios que trabajan con citas: barberías, consultorio
 
 El frontend está en Next.js y el backend corre en AWS sin servidores: Lambda, API Gateway, DynamoDB, Cognito, S3 y CloudFront, todo definido con CDK.
 
+![Portada](docs/inicio.png)
+
 ![Página de reservas](docs/reservar.png)
 
 | Reservar desde el celular | Agenda del dueño |

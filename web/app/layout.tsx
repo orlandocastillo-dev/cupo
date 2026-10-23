@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import "@fontsource-variable/figtree";
+import "@fontsource-variable/tiktok-sans/wdth.css";
 import "./globals.css";
 import "./reservar.css";
 import "./panel.css";

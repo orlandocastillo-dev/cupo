@@ -1,21 +1,21 @@
-/* Cupo. Verde petróleo sobre blanco, una sola letra (Figtree) y nada de adornos: es una herramienta de trabajo. */
+/* Cupo. Azul eléctrico sobre blanco, una sola letra (TikTok Sans) y nada de adornos: es una herramienta de trabajo. */
 
 :root {
   --bg: #f5f6f7;
   --surface: #ffffff;
-  --ink: #15191e;
+  --ink: #0a0a0a;
   --muted: #5b6570;
   --faint: #8a939c;
   --line: #e2e5e9;
   --line-strong: #c9ced5;
-  --primario: #0f6e64;
-  --primario-fuerte: #0b554d;
-  --primario-suave: #e6f2f0;
+  --primario: #2436ff;
+  --primario-fuerte: #1726d1;
+  --primario-suave: #e9ebff;
   --ambar: #9a5700;
   --ambar-suave: #fdf1e0;
   --rojo: #b42318;
   --rojo-suave: #fdecea;
-  --font: "Figtree Variable", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font: "TikTok Sans Variable", system-ui, -apple-system, "Segoe UI", sans-serif;
   --r: 8px;
   --r-sm: 6px;
   --sombra: 0 1px 2px rgb(21 25 30 / 0.06), 0 12px 32px -18px rgb(21 25 30 / 0.28);
@@ -324,25 +324,6 @@ img {
   .barra nav .opcional {
     display: none;
   }
-}
-
-.pie {
-  padding: 2rem 0;
-  border-top: 1px solid var(--line);
-  background: var(--surface);
-  color: var(--muted);
-  font-size: 0.9rem;
-}
-
-.pie .contenedor {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 0.75rem 2rem;
-}
-
-.pie a {
-  color: var(--ink);
 }
 
 @media (prefers-reduced-motion: reduce) {
