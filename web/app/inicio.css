@@ -1,0 +1,270 @@
+/* Portada */
+
+.portada {
+  padding: clamp(3rem, 7vw, 5.5rem) 0;
+  border-bottom: 1px solid var(--line);
+  background: var(--surface);
+}
+
+.portada__dentro {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: clamp(2rem, 6vw, 5rem);
+  align-items: center;
+}
+
+@media (max-width: 900px) {
+  .portada__dentro {
+    grid-template-columns: 1fr;
+  }
+}
+
+.portada h1 {
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  line-height: 1.07;
+}
+
+.portada__lead {
+  max-width: 36rem;
+  margin: 1.25rem 0 2rem;
+  color: var(--muted);
+  font-size: 1.15rem;
+}
+
+.portada__acciones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.maqueta {
+  display: grid;
+  gap: 1rem;
+  width: min(100%, 400px);
+  justify-self: center;
+  padding: 1.35rem;
+  box-shadow: var(--sombra);
+}
+
+.maqueta__cabeza {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.maqueta__foto {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--r-sm);
+  background: var(--primario-suave);
+  color: var(--primario);
+  font-weight: 700;
+}
+
+.maqueta__nombre {
+  font-weight: 650;
+}
+
+.maqueta__dia {
+  font-weight: 600;
+}
+
+.maqueta__horas {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.4rem;
+}
+
+.maqueta__horas span {
+  display: grid;
+  place-items: center;
+  min-height: 38px;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--r-sm);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.maqueta__horas .is-elegida {
+  border-color: var(--primario);
+  background: var(--primario);
+  color: #fff;
+}
+
+.maqueta__boton {
+  display: grid;
+  place-items: center;
+  min-height: 44px;
+  border-radius: var(--r-sm);
+  background: var(--primario);
+  color: #fff;
+  font-weight: 600;
+}
+
+/* Secciones */
+
+.seccion {
+  padding: clamp(3.5rem, 8vw, 5.5rem) 0;
+}
+
+.seccion--blanca {
+  border-block: 1px solid var(--line);
+  background: var(--surface);
+}
+
+.seccion__titulo {
+  margin-bottom: 2rem;
+  font-size: clamp(1.6rem, 3.2vw, 2.25rem);
+}
+
+.pasos {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: paso;
+}
+
+.pasos li {
+  counter-increment: paso;
+  padding-top: 1rem;
+  border-top: 2px solid var(--ink);
+}
+
+.pasos li::before {
+  content: counter(paso);
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--primario);
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.pasos h3 {
+  margin-bottom: 0.4rem;
+  font-size: 1.1rem;
+}
+
+@media (max-width: 760px) {
+  .pasos {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+.ventajas {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 2rem 3rem;
+  margin: 0;
+}
+
+.ventajas dt {
+  margin-bottom: 0.35rem;
+  font-weight: 650;
+}
+
+.ventajas dd {
+  margin: 0;
+  color: var(--muted);
+}
+
+@media (max-width: 860px) {
+  .ventajas {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  .ventajas {
+    grid-template-columns: 1fr;
+  }
+}
+
+.tecnica {
+  display: grid;
+  grid-template-columns: minmax(0, 0.75fr) minmax(0, 1.25fr);
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.tecnica__texto {
+  display: grid;
+  gap: 1rem;
+  justify-items: start;
+}
+
+.tecnica__texto .seccion__titulo {
+  margin-bottom: 0;
+}
+
+@media (max-width: 960px) {
+  .tecnica {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Diagrama de arquitectura */
+
+.arq {
+  margin: 0;
+  padding: 1rem;
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  background: var(--surface);
+  overflow-x: auto;
+}
+
+.arq svg {
+  display: block;
+  width: 100%;
+  min-width: 640px;
+  height: auto;
+}
+
+.arq__caja {
+  fill: var(--surface);
+  stroke: var(--line-strong);
+}
+
+.arq__caja--web {
+  fill: var(--bg);
+}
+
+.arq__caja--datos {
+  fill: var(--primario-suave);
+  stroke: #9fcfc8;
+}
+
+.arq__titulo {
+  fill: var(--ink);
+  font: 650 15px var(--font);
+}
+
+.arq__detalle {
+  fill: var(--muted);
+  font: 400 12.5px var(--font);
+}
+
+.arq__etiqueta {
+  fill: var(--muted);
+  font: 500 12px var(--font);
+}
+
+.arq__lineas path,
+path.arq__lineas {
+  fill: none;
+  stroke: var(--faint);
+  stroke-width: 1.5;
+}
+
+.arq__punta {
+  fill: var(--faint);
+}

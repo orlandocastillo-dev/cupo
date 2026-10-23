@@ -51,7 +51,8 @@ function azar(semilla: number): number {
   return x - Math.floor(x);
 }
 
-export function datosDeEjemplo(hoy: string): DatosMemoria {
+/** `ahora` son los minutos del día de hoy: las citas de hoy que ya pasaron salen atendidas. */
+export function datosDeEjemplo(hoy: string, ahora = 0): DatosMemoria {
   const reservas: Reserva[] = [];
   const bloques: string[] = [];
   let n = 0;
@@ -72,7 +73,8 @@ export function datosDeEjemplo(hoy: string): DatosMemoria {
           continue;
         }
         const suerte = azar(n * 7);
-        const estado: Reserva["estado"] = d >= 0 ? "confirmada" : suerte < 0.08 ? "no_asistio" : suerte < 0.13 ? "cancelada" : "atendida";
+        const yaPaso = d < 0 || (d === 0 && fin <= ahora);
+        const estado: Reserva["estado"] = !yaPaso ? "confirmada" : suerte < 0.08 ? "no_asistio" : suerte < 0.13 ? "cancelada" : "atendida";
         const nombre = CLIENTES[n % CLIENTES.length]!;
         const inicio = aHora(cursor);
         reservas.push({
@@ -84,7 +86,7 @@ export function datosDeEjemplo(hoy: string): DatosMemoria {
           fecha,
           inicio,
           fin: aHora(fin),
-          cliente: { nombre, telefono: `30${String(10_000_000 + n * 7919).slice(0, 8)}` },
+          cliente: { nombre, telefono: `3${String(Math.floor(azar(n * 11) * 1e9)).padStart(9, "0")}` },
           estado,
           codigo: `EJ${String(1000 + n).slice(-4)}`,
           creada: `${sumarDias(fecha, -2)}T15:00:00.000Z`,

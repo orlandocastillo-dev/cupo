@@ -1,0 +1,355 @@
+/* Cupo. Verde petróleo sobre blanco, una sola letra (Figtree) y nada de adornos: es una herramienta de trabajo. */
+
+:root {
+  --bg: #f5f6f7;
+  --surface: #ffffff;
+  --ink: #15191e;
+  --muted: #5b6570;
+  --faint: #8a939c;
+  --line: #e2e5e9;
+  --line-strong: #c9ced5;
+  --primario: #0f6e64;
+  --primario-fuerte: #0b554d;
+  --primario-suave: #e6f2f0;
+  --ambar: #9a5700;
+  --ambar-suave: #fdf1e0;
+  --rojo: #b42318;
+  --rojo-suave: #fdecea;
+  --font: "Figtree Variable", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --r: 8px;
+  --r-sm: 6px;
+  --sombra: 0 1px 2px rgb(21 25 30 / 0.06), 0 12px 32px -18px rgb(21 25 30 / 0.28);
+  color-scheme: light;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font: 400 1rem/1.55 var(--font);
+  font-variant-numeric: tabular-nums;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 650;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  text-wrap: balance;
+}
+
+a {
+  color: var(--primario);
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--primario);
+  outline-offset: 2px;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.contenedor {
+  width: min(1120px, 100% - 32px);
+  margin-inline: auto;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+.pequeno {
+  font-size: 0.875rem;
+}
+
+/* ---- Botones y campos ---- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  min-height: 44px;
+  padding: 0 1.1rem;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--r-sm);
+  background: var(--surface);
+  color: var(--ink);
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color 0.15s, border-color 0.15s;
+}
+
+.btn:hover {
+  border-color: var(--ink);
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn--primario {
+  border-color: var(--primario);
+  background: var(--primario);
+  color: #fff;
+}
+
+.btn--primario:hover {
+  border-color: var(--primario-fuerte);
+  background: var(--primario-fuerte);
+}
+
+.btn--peligro {
+  color: var(--rojo);
+}
+
+.btn--peligro:hover {
+  border-color: var(--rojo);
+}
+
+.btn--chico {
+  min-height: 34px;
+  padding: 0 0.75rem;
+  font-size: 0.875rem;
+}
+
+.btn--bloque {
+  width: 100%;
+}
+
+.btn--texto {
+  min-height: auto;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--primario);
+}
+
+.btn--texto:hover {
+  text-decoration: underline;
+}
+
+.campo {
+  display: grid;
+  gap: 0.35rem;
+  min-width: 0;
+}
+
+.campo > span:first-child {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.campo input,
+.campo select,
+.campo textarea {
+  width: 100%;
+  min-height: 44px;
+  padding: 0.55rem 0.75rem;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--r-sm);
+  background: var(--surface);
+}
+
+.campo textarea {
+  min-height: 84px;
+  resize: vertical;
+}
+
+.campo input:focus,
+.campo select:focus,
+.campo textarea:focus {
+  border-color: var(--primario);
+  outline: 2px solid var(--primario-suave);
+}
+
+.campo small {
+  color: var(--muted);
+}
+
+.formulario {
+  display: grid;
+  gap: 1rem;
+}
+
+.fila-2 {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+@media (max-width: 560px) {
+  .fila-2 {
+    grid-template-columns: 1fr;
+  }
+}
+
+.error {
+  padding: 0.65rem 0.85rem;
+  border: 1px solid #f4c7c2;
+  border-radius: var(--r-sm);
+  background: var(--rojo-suave);
+  color: var(--rojo);
+  font-size: 0.925rem;
+}
+
+.aviso {
+  padding: 0.65rem 0.85rem;
+  border: 1px solid #f2d6a8;
+  border-radius: var(--r-sm);
+  background: var(--ambar-suave);
+  color: #6b3d00;
+  font-size: 0.925rem;
+}
+
+.tarjeta {
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  background: var(--surface);
+}
+
+.cargando {
+  padding: 2.5rem 1rem;
+  color: var(--muted);
+  text-align: center;
+}
+
+.esqueleto {
+  border-radius: var(--r-sm);
+  background: linear-gradient(90deg, #eceef0 0%, #f6f7f8 50%, #eceef0 100%) 0 0 / 200% 100%;
+  animation: brillo 1.2s linear infinite;
+}
+
+@keyframes brillo {
+  to {
+    background-position: -200% 0;
+  }
+}
+
+/* ---- Marca ---- */
+
+.marca {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--ink);
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  text-decoration: none;
+}
+
+.marca svg {
+  width: 26px;
+  height: 26px;
+}
+
+/* ---- Barra de arriba de las páginas públicas ---- */
+
+.barra {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  border-bottom: 1px solid var(--line);
+  background: rgb(255 255 255 / 0.94);
+  backdrop-filter: blur(8px);
+}
+
+.barra__dentro {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  min-height: 62px;
+}
+
+.barra nav {
+  display: flex;
+  gap: 1.5rem;
+  margin-left: auto;
+}
+
+.barra nav a {
+  color: var(--muted);
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.barra nav a:hover {
+  color: var(--ink);
+}
+
+@media (max-width: 640px) {
+  .barra nav .opcional {
+    display: none;
+  }
+}
+
+.pie {
+  padding: 2rem 0;
+  border-top: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.pie .contenedor {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.75rem 2rem;
+}
+
+.pie a {
+  color: var(--ink);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
