@@ -1,0 +1,9 @@
+{
+  "app": "npx tsx bin/cupo.ts",
+  "watch": { "include": ["bin/**", "lib/**", "../api/src/**", "../packages/core/src/**"] },
+  "context": {
+    "@aws-cdk/aws-lambda:recognizeLayerVersion": true,
+    "@aws-cdk/core:checkSecretUsage": true,
+    "@aws-cdk/core:target-partitions": ["aws"]
+  }
+}
