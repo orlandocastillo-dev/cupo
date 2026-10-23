@@ -1,0 +1,10 @@
+node_modules/
+.next/
+out/
+cdk.out/
+coverage/
+.env*.local
+*.tsbuildinfo
+test-results/
+playwright-report/
+.vercel
