@@ -1,13 +1,13 @@
 /* Cupo por dentro: claro y tranquilo, con el violeta de la portada y la misma letra (Outfit). Es una herramienta de trabajo. */
 
 :root {
-  --bg: #f5f6f7;
+  --bg: #f6f6f9;
   --surface: #ffffff;
-  --ink: #0a0a0a;
-  --muted: #5b6570;
-  --faint: #8a939c;
-  --line: #e2e5e9;
-  --line-strong: #c9ced5;
+  --ink: #15131f;
+  --muted: #625f73;
+  --faint: #8f8ca0;
+  --line: #e8e7ef;
+  --line-strong: #d3d1dd;
   --primario: #6a4cf0;
   --primario-fuerte: #5236d6;
   --primario-suave: #efebff;
@@ -16,8 +16,8 @@
   --rojo: #b42318;
   --rojo-suave: #fdecea;
   --font: "Outfit Variable", system-ui, -apple-system, "Segoe UI", sans-serif;
-  --r: 8px;
-  --r-sm: 6px;
+  --r: 14px;
+  --r-sm: 10px;
   --sombra: 0 1px 2px rgb(21 25 30 / 0.06), 0 12px 32px -18px rgb(21 25 30 / 0.28);
   color-scheme: light;
 }
@@ -248,6 +248,7 @@ img {
   border: 1px solid var(--line);
   border-radius: var(--r);
   background: var(--surface);
+  box-shadow: 0 1px 2px rgb(20 16 40 / 0.04);
 }
 
 .cargando {
