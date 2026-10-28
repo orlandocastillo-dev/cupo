@@ -1,13 +1,13 @@
 /* Cupo por dentro: claro y tranquilo, con el papel, la tinta y el rojo vino de la portada, y la misma letra (Outfit). Es una herramienta de trabajo. */
 
 :root {
-  --bg: #f6f2ea;
-  --surface: #fffdf9;
+  --bg: #f6f6f4;
+  --surface: #ffffff;
   --ink: #1a1714;
-  --muted: #5f584e;
-  --faint: #948b7e;
-  --line: #e6dfd2;
-  --line-strong: #d2c8b7;
+  --muted: #5c5d63;
+  --faint: #8e8f96;
+  --line: #e4e6ea;
+  --line-strong: #cfd3da;
   --primario: #8c1c2b;
   --primario-fuerte: #6f1421;
   --primario-suave: #f4e4e2;
@@ -259,7 +259,7 @@ img {
 
 .esqueleto {
   border-radius: var(--r-sm);
-  background: linear-gradient(90deg, #ece5d8 0%, #f6f1e8 50%, #ece5d8 100%) 0 0 / 200% 100%;
+  background: linear-gradient(90deg, #ebedf0 0%, #f6f7f8 50%, #ebedf0 100%) 0 0 / 200% 100%;
   animation: brillo 1.2s linear infinite;
 }
 

@@ -1,14 +1,14 @@
-/* Portada de Cupo: de día, como la libreta de citas del mostrador. Papel, tinta y un rojo vino. */
+/* Portada de Cupo: de día, como la libreta de citas del mostrador. Hoja blanca de cuaderno con renglones azules, tinta y un rojo vino. */
 
 .cine {
-  --papel: #f5f0e6;
-  --papel-2: #ece4d5;
-  --hoja: #fbf8f1;
+  --papel: #fafaf7;
+  --papel-2: #eef1f5;
+  --hoja: #ffffff;
   --tinta: #1a1714;
-  --suave: #4f483f;
-  --tenue: #8a8174;
-  --linea: #dcd2c1;
-  --renglon: #e8dfcf;
+  --suave: #4a4a4f;
+  --tenue: #85868d;
+  --linea: #dde1e7;
+  --renglon: #d6e2ef;
   --vino: #8c1c2b;
   --vino-fuerte: #6f1421;
   --vino-suave: #f4e4e2;
@@ -29,7 +29,7 @@
 }
 
 body:has(.cine) {
-  background: #f5f0e6;
+  background: #fafaf7;
 }
 
 .cine a {
@@ -116,7 +116,7 @@ body:has(.cine) {
   gap: 28px;
   padding: 12px max(var(--lado), (100% - var(--ancho)) / 2);
   border-bottom: 1px solid var(--linea);
-  background: rgb(245 240 230 / 0.92);
+  background: rgb(250 250 247 / 0.92);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
 }
@@ -171,7 +171,7 @@ body:has(.cine) {
 .cine .escena {
   padding: 0 var(--lado);
   background:
-    linear-gradient(transparent calc(100% - 1px), var(--linea)) 0 0 / 100% 32px,
+    linear-gradient(transparent calc(100% - 1px), var(--renglon)) 0 0 / 100% 32px,
     var(--papel);
   border-bottom: 1px solid var(--linea);
 }
@@ -242,9 +242,9 @@ body:has(.cine) {
   background: var(--hoja);
   box-shadow:
     0 1px 0 var(--linea),
-    0 2px 0 -1px #e6dcca,
-    0 4px 0 -2px #ddd1bd,
-    0 30px 60px -30px rgb(60 40 20 / 0.35);
+    0 2px 0 -1px #e7eaef,
+    0 4px 0 -2px #dde1e7,
+    0 30px 60px -30px rgb(30 40 60 / 0.3);
   transform: rotate(-1.2deg);
   overflow: hidden;
 }
@@ -403,7 +403,7 @@ body:has(.cine) {
   color: var(--tinta);
   font-size: 13px;
   line-height: 1.35;
-  box-shadow: 0 14px 24px -14px rgb(60 40 20 / 0.5);
+  box-shadow: 0 14px 24px -14px rgb(30 40 60 / 0.5);
   transform: rotate(3deg);
 }
 
@@ -616,7 +616,7 @@ html.js .cine .papelito {
   border: 1px solid var(--linea);
   border-radius: 16px;
   background: var(--hoja);
-  box-shadow: 0 30px 60px -36px rgb(60 40 20 / 0.4);
+  box-shadow: 0 30px 60px -36px rgb(30 40 60 / 0.4);
 }
 
 .cine .demo__cabeza {

@@ -155,7 +155,7 @@
 }
 
 .servicio:hover {
-  background: #fbf7f0;
+  background: #fafbfc;
 }
 
 .servicio.is-elegido {
@@ -463,6 +463,6 @@
 }
 
 .estado--atendida {
-  background: #ece5d8;
+  background: #eceef1;
   color: var(--muted);
 }

@@ -14,7 +14,7 @@
   flex-direction: column;
   gap: 1.5rem;
   padding: 1.25rem 0.9rem;
-  background: #1a1714;
+  background: #17181c;
   color: #e4dccd;
 }
 
@@ -355,7 +355,7 @@
 
 .kpis__proxima {
   border-color: #e5c4c8 !important;
-  background: linear-gradient(180deg, #faf0ee, #fffdf9) !important;
+  background: linear-gradient(180deg, #fbf1f1, #ffffff) !important;
 }
 
 .kpis__proxima dd {
@@ -385,7 +385,7 @@
   height: 6px;
   margin: 0.25rem 0 0.1rem;
   border-radius: 99px;
-  background: #ece5d8;
+  background: #eceef1;
   overflow: hidden;
 }
 
@@ -452,7 +452,7 @@
   height: 4px;
   margin-top: 0.35rem;
   border-radius: 99px;
-  background: #ece5d8;
+  background: #eceef1;
   overflow: hidden;
 }
 
@@ -523,7 +523,7 @@
 }
 
 .cita:hover {
-  background: #fbf7f0;
+  background: #fafbfc;
 }
 
 .cita.is-ahora {
@@ -548,7 +548,7 @@
 
 .cita--cancelada .avatar,
 .cita--atendida .avatar {
-  background: #eee8dd;
+  background: #eeeff2;
   color: var(--faint);
 }
 
@@ -629,7 +629,7 @@
 }
 
 .estado--cancelada {
-  background: #eee8dd;
+  background: #eeeff2;
   color: var(--muted);
 }
 
@@ -719,7 +719,7 @@
 }
 
 .barras__guia {
-  stroke: #eee7db;
+  stroke: #eceef2;
 }
 
 .barras__base {
