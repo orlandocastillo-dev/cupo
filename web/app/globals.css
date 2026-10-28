@@ -1,4 +1,4 @@
-/* Cupo. Azul eléctrico sobre blanco, una sola letra (TikTok Sans) y nada de adornos: es una herramienta de trabajo. */
+/* Cupo por dentro: claro y tranquilo, con el violeta de la portada y la misma letra (Outfit). Es una herramienta de trabajo. */
 
 :root {
   --bg: #f5f6f7;
@@ -8,14 +8,14 @@
   --faint: #8a939c;
   --line: #e2e5e9;
   --line-strong: #c9ced5;
-  --primario: #2436ff;
-  --primario-fuerte: #1726d1;
-  --primario-suave: #e9ebff;
+  --primario: #6a4cf0;
+  --primario-fuerte: #5236d6;
+  --primario-suave: #efebff;
   --ambar: #9a5700;
   --ambar-suave: #fdf1e0;
   --rojo: #b42318;
   --rojo-suave: #fdecea;
-  --font: "TikTok Sans Variable", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font: "Outfit Variable", system-ui, -apple-system, "Segoe UI", sans-serif;
   --r: 8px;
   --r-sm: 6px;
   --sombra: 0 1px 2px rgb(21 25 30 / 0.06), 0 12px 32px -18px rgb(21 25 30 / 0.28);
