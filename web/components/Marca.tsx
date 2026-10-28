@@ -4,9 +4,9 @@ import Link from "next/link";
 export function Logo() {
   return (
     <svg viewBox="0 0 32 32" aria-hidden="true">
-      <rect x="3" y="5" width="26" height="24" rx="5" fill="#2436ff" />
-      <rect x="9" y="2" width="3" height="6" rx="1.5" fill="#0a0a0a" />
-      <rect x="20" y="2" width="3" height="6" rx="1.5" fill="#0a0a0a" />
+      <rect x="3" y="5" width="26" height="24" rx="5" fill="#6a4cf0" />
+      <rect x="9" y="2" width="3" height="6" rx="1.5" fill="#3b2a99" />
+      <rect x="20" y="2" width="3" height="6" rx="1.5" fill="#3b2a99" />
       <path d="m10.5 18 3.8 3.8 7.4-7.6" fill="none" stroke="#fff" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
