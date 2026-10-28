@@ -20,6 +20,13 @@ const PASOS = [
   { t: "Tus clientes reservan solos", d: "Ven solo las horas que de verdad están libres. No tienen que crear cuenta ni escribirte." },
 ];
 
+const CIFRAS = [
+  { n: "15 min", d: "Bloques en que se parte la agenda" },
+  { n: "0", d: "Reservas dobles, lo impide la base de datos" },
+  { n: "6:00 p. m.", d: "Sale el recordatorio del día siguiente" },
+  { n: "< 1 min", d: "Lo que tarda un cliente en reservar" },
+];
+
 const PREGUNTAS = [
   { p: "¿Cuánto cuesta?", r: "Nada. Cupo es un proyecto de portafolio: la barbería del ejemplo es inventada y lo que hagas en ella se guarda solo en tu navegador." },
   { p: "¿Mis clientes tienen que crear una cuenta?", r: "No. Escogen servicio, día y hora, dejan su nombre y su celular, y reciben un código para ver o cancelar la cita." },
@@ -68,9 +75,9 @@ export default function Inicio() {
         <div className="grano" aria-hidden="true" />
 
         <section className="portada">
-          <span className="etiqueta" data-reveal>
-            <b>Nuevo</b> Recordatorio automático el día antes
-          </span>
+          <p className="ceja" data-reveal>
+            Reservas en línea para barberías, spas y consultorios
+          </p>
           <h1 data-reveal>
             Tu agenda llena, <em>sin contestar mensajes.</em>
           </h1>
@@ -85,6 +92,9 @@ export default function Inicio() {
               Ver el panel del dueño
             </Link>
           </div>
+          <p className="portada__nota" data-reveal>
+            Tus clientes no crean cuenta. Tú no contestas un solo mensaje.
+          </p>
         </section>
 
         <div className="vitrina" aria-label="Así se ve la agenda del dueño">
@@ -151,8 +161,22 @@ export default function Inicio() {
       </div>
 
       <main>
+        <section className="cifras-banda" aria-label="Cupo en cifras">
+          <dl>
+            {CIFRAS.map((c) => (
+              <div key={c.d} data-reveal>
+                <dt>{c.d}</dt>
+                <dd>{c.n}</dd>
+              </div>
+            ))}
+          </dl>
+        </section>
+
         <section className="seccion probar" id="probar" aria-labelledby="t-probar">
           <div className="probar__texto">
+            <p className="ceja ceja--num" data-reveal>
+              <span>01</span> Cómo funciona
+            </p>
             <h2 id="t-probar" className="titulo" data-reveal>
               Pruébalo aquí mismo, <em>como lo haría tu cliente.</em>
             </h2>
@@ -178,6 +202,9 @@ export default function Inicio() {
         </section>
 
         <section className="seccion funciones" id="funciones" aria-labelledby="t-funciones">
+          <p className="ceja ceja--num ceja--centro" data-reveal>
+            <span>02</span> Lo que hace
+          </p>
           <h2 id="t-funciones" className="titulo titulo--centro" data-reveal>
             Lo que se encarga solo, <em>mientras tú atiendes.</em>
           </h2>
@@ -257,6 +284,9 @@ export default function Inicio() {
 
         <section className="seccion tecnica" id="tecnica" aria-labelledby="t-tecnica">
           <div className="horizonte" aria-hidden="true" />
+          <p className="ceja ceja--num ceja--centro" data-reveal>
+            <span>03</span> Cómo está hecho
+          </p>
           <h2 id="t-tecnica" className="titulo titulo--centro" data-reveal>
             Hecho como se hace <em>en producción.</em>
           </h2>
@@ -335,6 +365,9 @@ export default function Inicio() {
         </section>
 
         <section className="seccion preguntas" aria-labelledby="t-preguntas">
+          <p className="ceja ceja--num ceja--centro" data-reveal>
+            <span>04</span> Preguntas
+          </p>
           <h2 id="t-preguntas" className="titulo titulo--centro" data-reveal>
             Preguntas que <em>siempre hacen.</em>
           </h2>
@@ -373,15 +406,43 @@ export default function Inicio() {
 
       <footer className="pie">
         <div className="pie__dentro">
-          <p>
-            Cupo es un proyecto de portafolio de <b>Orlando Castillo</b>, desarrollador en Barranquilla. Barbería El Parche es un negocio inventado.
-          </p>
-          <nav aria-label="Enlaces">
-            <a href={GITHUB} target="_blank" rel="noopener noreferrer">
-              GitHub
-            </a>
-            <a href="mailto:orlandocastillo0709@gmail.com">orlandocastillo0709@gmail.com</a>
+          <div className="pie__marca">
+            <Link className="marca" href="/">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <rect x="2.5" y="4" width="19" height="17" rx="5" stroke="currentColor" strokeWidth="1.6" />
+                <path d="m8 12.6 2.8 2.8L16.4 9.8" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+              Cupo
+            </Link>
+            <p>Reservas en línea para negocios que viven de su agenda.</p>
+          </div>
+          <nav aria-label="Producto">
+            <p>Producto</p>
+            <Link href={EJEMPLO}>Barbería de ejemplo</Link>
+            <Link href="/panel">Panel del dueño</Link>
+            <a href="#funciones">Lo que hace</a>
           </nav>
+          <nav aria-label="Proyecto">
+            <p>Proyecto</p>
+            <a href={GITHUB} target="_blank" rel="noopener noreferrer">
+              Código en GitHub
+            </a>
+            <a href="#tecnica">Arquitectura en AWS</a>
+            <a href="https://orlandocastillo.vercel.app" target="_blank" rel="noopener noreferrer">
+              Portafolio
+            </a>
+          </nav>
+          <nav aria-label="Contacto">
+            <p>Contacto</p>
+            <a href="mailto:orlandocastillo0709@gmail.com">orlandocastillo0709@gmail.com</a>
+            <a href="https://github.com/orlandocastillo-dev" target="_blank" rel="noopener noreferrer">
+              orlandocastillo-dev
+            </a>
+          </nav>
+        </div>
+        <div className="pie__base">
+          <p>Proyecto de portafolio de Orlando Castillo, Barranquilla, 2025 – 2026.</p>
+          <p>Barbería El Parche es un negocio inventado.</p>
         </div>
       </footer>
     </div>

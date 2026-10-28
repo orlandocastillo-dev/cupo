@@ -9,7 +9,9 @@
   --suave: #c2bcdf;
   --tenue: #8f88b3;
   --violeta: #8c6bff;
-  --rosa: #ff7ad9;
+  --rosa: #d78bd6;
+  --lavanda: #b9a6ff;
+  --mono: ui-monospace, "SF Mono", "Cascadia Mono", Consolas, monospace;
   --verde: #6ee7b7;
   --ambar: #fbbf6a;
   --display: "Outfit Variable", "Helvetica Neue", Arial, sans-serif;
@@ -54,7 +56,7 @@ body:has(.cine) {
   font-style: italic;
   font-weight: 400;
   letter-spacing: -0.02em;
-  background: linear-gradient(100deg, #ffffff 10%, #d9c8ff 45%, #ff9be6 90%);
+  background: linear-gradient(100deg, #ffffff 15%, #d6ccff 60%, #e7c4f2 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -248,33 +250,47 @@ html:not(.js) .seda {
   gap: 26px;
 }
 
-.etiqueta {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  padding: 6px 14px 6px 8px;
-  border-radius: 999px;
-  border: 1px solid var(--borde);
-  background: var(--vidrio);
-  font-size: 13px;
-  color: var(--suave);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+.ceja {
+  font: 500 12px/1.4 var(--mono);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--tenue);
 }
 
-.etiqueta b {
-  padding: 2px 8px;
-  border-radius: 999px;
-  background: rgb(140 107 255 / 0.3);
-  color: var(--texto);
-  font-weight: 500;
+.ceja--num {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 22px !important;
+}
+
+.ceja--num span {
+  color: var(--lavanda);
+}
+
+.ceja--num::after,
+.ceja--centro::before {
+  content: "";
+  width: 48px;
+  height: 1px;
+  background: var(--borde);
+}
+
+.ceja--centro {
+  justify-content: center;
+}
+
+.portada__nota {
+  font-size: 14px;
+  color: var(--tenue);
+  margin-top: -6px !important;
 }
 
 .portada h1 {
   font-weight: 400;
-  font-size: clamp(46px, 8.4vw, 100px);
-  line-height: 0.98;
-  letter-spacing: -0.045em;
+  font-size: clamp(44px, 7.6vw, 92px);
+  line-height: 1;
+  letter-spacing: -0.042em;
   text-wrap: balance;
 }
 
@@ -594,6 +610,65 @@ html.js .cita {
 
 /* ---------- Secciones ---------- */
 
+.cifras-banda {
+  max-width: var(--ancho);
+  margin: clamp(56px, 8vw, 96px) auto 0;
+  padding: 0 var(--lado);
+}
+
+.cifras-banda dl {
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  border-block: 1px solid var(--borde);
+}
+
+.cifras-banda dl > div {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: flex-end;
+  gap: 10px;
+  padding: 30px 28px 32px;
+}
+
+.cifras-banda dl > div + div {
+  border-left: 1px solid var(--borde);
+}
+
+.cifras-banda dd {
+  margin: 0;
+  font-size: clamp(30px, 3.4vw, 42px);
+  font-weight: 400;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.cifras-banda dt {
+  color: var(--tenue);
+  font-size: 14px;
+  font-weight: 300;
+  max-width: 22ch;
+}
+
+@media (max-width: 860px) {
+  .cifras-banda dl {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .cifras-banda dl > div:nth-child(3) {
+    border-left: 0;
+  }
+
+  .cifras-banda dl > div:nth-child(n + 3) {
+    border-top: 1px solid var(--borde);
+  }
+
+  .cifras-banda dl > div {
+    padding: 24px 18px;
+  }
+}
+
 .seccion {
   position: relative;
   max-width: var(--ancho);
@@ -680,7 +755,7 @@ html.js .cita {
   position: absolute;
   inset: 10% -10%;
   z-index: -1;
-  background: radial-gradient(closest-side, rgb(140 107 255 / 0.45), rgb(255 122 217 / 0.18) 55%, transparent);
+  background: radial-gradient(closest-side, rgb(140 107 255 / 0.4), rgb(140 107 255 / 0.1) 55%, transparent);
   filter: blur(40px);
   animation: respirar 7s ease-in-out infinite;
 }
@@ -727,7 +802,7 @@ html.js .cita {
   width: 46px;
   height: 46px;
   border-radius: 14px;
-  background: linear-gradient(135deg, var(--violeta), var(--rosa));
+  background: linear-gradient(135deg, #6f50f5, var(--lavanda));
   font-weight: 600;
 }
 
@@ -876,7 +951,7 @@ html.js .cita {
   min-height: 52px;
   border-radius: 999px;
   border: 0;
-  background: linear-gradient(100deg, var(--violeta), #c46bff 60%, var(--rosa));
+  background: linear-gradient(100deg, #6f50f5, var(--violeta));
   color: #fff;
   font: 500 16px var(--display);
   cursor: pointer;
@@ -1052,7 +1127,7 @@ html.js .cita {
   inset: 0;
   transform-origin: left;
   transform: scaleX(0);
-  background: linear-gradient(90deg, var(--violeta), var(--rosa));
+  background: linear-gradient(90deg, var(--violeta), var(--lavanda));
 }
 
 .carrera__hora {
@@ -1167,7 +1242,7 @@ html:not(.js) .carrera__res {
   width: 40px;
   height: 40px;
   border-radius: 12px;
-  background: linear-gradient(135deg, var(--violeta), var(--rosa));
+  background: linear-gradient(135deg, #6f50f5, var(--lavanda));
   font-weight: 600;
   font-size: 13px;
 }
@@ -1205,7 +1280,7 @@ html:not(.js) .carrera__res {
 .cancelar__boton {
   padding: 10px 18px;
   border-radius: 999px;
-  border: 1px solid rgb(255 122 217 / 0.4);
+  border: 1px solid rgb(185 166 255 / 0.4);
   color: #ffb3ea;
   font-size: 14px;
 }
@@ -1249,7 +1324,7 @@ html:not(.js) .carrera__res {
 .barras span {
   flex: 1;
   border-radius: 8px 8px 3px 3px;
-  background: linear-gradient(180deg, var(--rosa), var(--violeta));
+  background: linear-gradient(180deg, var(--lavanda), var(--violeta));
   transform-origin: bottom;
   opacity: 0.85;
 }
@@ -1391,7 +1466,7 @@ html:not(.js) .carrera__res {
   left: -40%;
   width: 40%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, var(--rosa), transparent);
+  background: linear-gradient(90deg, transparent, var(--lavanda), transparent);
   animation: viajar 2.2s linear infinite;
 }
 
@@ -1438,7 +1513,7 @@ html:not(.js) .carrera__res {
     top: -40%;
     width: 100%;
     height: 40%;
-    background: linear-gradient(180deg, transparent, var(--rosa), transparent);
+    background: linear-gradient(180deg, transparent, var(--lavanda), transparent);
     animation-name: bajar-linea;
   }
 
@@ -1644,38 +1719,75 @@ html:not(.js) .carrera__res {
 /* ---------- Pie ---------- */
 
 .pie {
-  padding: 48px var(--lado) 56px;
+  margin-top: clamp(64px, 9vw, 110px);
+  padding: 0 var(--lado) 40px;
 }
 
 .pie__dentro {
   max-width: var(--ancho);
   margin: 0 auto;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 16px 32px;
-  color: var(--tenue);
+  padding-top: 48px;
+  border-top: 1px solid var(--borde);
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr) minmax(0, 1fr) auto;
+  gap: 40px 32px;
   font-size: 14px;
 }
 
-.pie__dentro b {
-  color: var(--suave);
-  font-weight: 500;
+.pie__marca p {
+  margin-top: 14px !important;
+  color: var(--tenue);
+  max-width: 30ch;
 }
 
 .pie nav {
   display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.pie nav p {
+  font: 500 11px/1.4 var(--mono);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--tenue);
+  margin-bottom: 4px !important;
 }
 
 .pie nav a {
+  color: var(--suave);
   text-decoration: none;
+  overflow-wrap: break-word;
   transition: color 0.2s;
 }
 
 .pie nav a:hover {
   color: var(--texto);
+}
+
+.pie__base {
+  max-width: var(--ancho);
+  margin: 48px auto 0;
+  padding-top: 22px;
+  border-top: 1px solid rgb(255 255 255 / 0.06);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px 24px;
+  color: var(--tenue);
+  font-size: 13px;
+}
+
+@media (max-width: 860px) {
+  .pie__dentro {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .pie__marca,
+  .pie nav[aria-label="Contacto"] {
+    grid-column: 1 / -1;
+  }
 }
 
 /* ---------- Entradas al hacer scroll ---------- */
