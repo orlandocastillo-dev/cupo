@@ -1,17 +1,20 @@
 import Link from "next/link";
-import { Seda } from "@/components/inicio/Seda";
 import { Movimiento } from "@/components/inicio/Movimiento";
 import { DemoReserva } from "@/components/inicio/DemoReserva";
 
 const EJEMPLO = "/n/barberia-el-parche";
 const GITHUB = "https://github.com/orlandocastillo-dev/cupo";
 
-const CITAS = [
-  { hora: "9:00 a. m.", quien: "Sebastián Molina", que: "Corte clásico, 30 min", estado: "Atendido", tono: "lista" },
-  { hora: "9:30 a. m.", quien: "Kevin Mendoza", que: "Corte y barba, 1 h", estado: "Atendido", tono: "lista" },
-  { hora: "11:00 a. m.", quien: "Andrés Pérez", que: "Barba con toalla caliente, 30 min", estado: "En la silla", tono: "ahora" },
-  { hora: "11:30 a. m.", quien: "Juan David Torres", que: "Corte para niño, 30 min", estado: "Confirmado", tono: "viene" },
-  { hora: "2:00 p. m.", quien: "Camilo Rojas", que: "Corte y barba, 1 h", estado: "Confirmado", tono: "viene" },
+// La hoja de la libreta: renglones de 15 minutos de 9:00 a 12:30.
+const RENGLONES = ["9:00", "9:15", "9:30", "9:45", "10:00", "10:15", "10:30", "10:45", "11:00", "11:15", "11:30", "11:45", "12:00", "12:15"];
+
+const ENTRADAS = [
+  { fila: 1, largo: 2, quien: "Sebastián Molina", que: "Corte clásico", tono: "lista", sello: "Atendido" },
+  { fila: 3, largo: 4, quien: "Kevin Mendoza", que: "Corte y barba", tono: "lista", sello: "Atendido" },
+  { fila: 7, largo: 2, quien: "Libre", que: "Se puede reservar desde la página", tono: "libre", sello: "" },
+  { fila: 9, largo: 2, quien: "Andrés Pérez", que: "Barba con toalla caliente", tono: "ahora", sello: "En la silla" },
+  { fila: 11, largo: 2, quien: "Juan David Torres", que: "Corte para niño", tono: "viene", sello: "" },
+  { fila: 13, largo: 2, quien: "Almuerzo", que: "Cerrado de 12:00 a 2:00", tono: "cerrado", sello: "" },
 ];
 
 const PASOS = [
@@ -36,14 +39,6 @@ const PREGUNTAS = [
   { p: "¿Dónde quedan guardados los datos?", r: "En la versión desplegada, en DynamoDB dentro de AWS, con las fotos en S3. El panel solo lo abre el dueño, que entra con su cuenta de Cognito." },
 ];
 
-function Icono({ d }: { d: string }) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-      <path d={d} />
-    </svg>
-  );
-}
-
 export default function Inicio() {
   return (
     <div className="cine">
@@ -65,99 +60,68 @@ export default function Inicio() {
             Código
           </a>
         </nav>
-        <Link className="boton boton--claro" href="/panel">
+        <Link className="boton boton--tinta" href="/panel">
           Entrar
         </Link>
       </header>
 
       <div className="escena">
-        <Seda className="seda" />
-        <div className="grano" aria-hidden="true" />
-
         <section className="portada">
-          <p className="ceja" data-reveal>
-            Reservas en línea para barberías, spas y consultorios
-          </p>
-          <h1 data-reveal>
-            Tu agenda llena, <em>sin contestar mensajes.</em>
-          </h1>
-          <p className="lead" data-reveal>
-            Tus clientes ven tus horas libres y reservan solos, a cualquier hora. Tú abres la app y ya sabes quién viene hoy.
-          </p>
-          <div className="acciones" data-reveal>
-            <Link className="boton boton--claro" href={EJEMPLO}>
-              Probar con una barbería de ejemplo
-            </Link>
-            <Link className="boton boton--vidrio" href="/panel">
-              Ver el panel del dueño
-            </Link>
-          </div>
-          <p className="portada__nota" data-reveal>
-            Tus clientes no crean cuenta. Tú no contestas un solo mensaje.
-          </p>
-        </section>
-
-        <div className="vitrina" aria-label="Así se ve la agenda del dueño">
-          <div className="ventana">
-            <div className="ventana__barra">
-              <i />
-              <i />
-              <i />
-              <span>cupo.app/panel</span>
+          <div className="portada__texto">
+            <p className="ceja" data-reveal>
+              Reservas en línea para barberías, spas y consultorios
+            </p>
+            <h1 data-reveal>
+              Tu agenda llena, <em>sin contestar mensajes.</em>
+            </h1>
+            <p className="lead" data-reveal>
+              Tus clientes ven tus horas libres y reservan solos, a cualquier hora. Tú abres la libreta y ya sabes quién viene hoy.
+            </p>
+            <div className="acciones" data-reveal>
+              <Link className="boton boton--tinta" href={EJEMPLO}>
+                Probar con una barbería de ejemplo
+              </Link>
+              <Link className="boton boton--linea" href="/panel">
+                Ver el panel del dueño
+              </Link>
             </div>
-            <div className="ventana__cuerpo">
-              <nav className="lado" aria-label="Panel de ejemplo">
-                <span aria-current="page">
-                  <Icono d="M3 8a3 3 0 0 1 3-3h12a3 3 0 0 1 3 3v10a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3zM3 10h18M8 3v4M16 3v4" />
-                  Agenda
-                </span>
-                <span>
-                  <Icono d="M4 20V10M10 20V4M16 20v-7M22 20H2" />
-                  Resumen
-                </span>
-                <span>
-                  <Icono d="M9 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0M9 18a3 3 0 1 1-6 0 3 3 0 0 1 6 0M20 4 8.1 15.9M14.5 14.5 20 20" />
-                  Servicios
-                </span>
-                <span>
-                  <Icono d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0M12 7v5l3 2" />
-                  Horario
-                </span>
-              </nav>
-              <div className="agenda">
-                <div className="agenda__cabeza">
-                  <div>
-                    <p className="agenda__dia">Viernes 23 de octubre</p>
-                    <p className="agenda__lugar">Barbería El Parche, Barranquilla</p>
-                  </div>
-                  <div className="cifras">
-                    <span>
-                      <b>9</b>citas hoy
-                    </span>
-                    <span>
-                      <b>$286.000</b>por cobrar
-                    </span>
-                    <span>
-                      <b>78 %</b>agenda ocupada
-                    </span>
-                  </div>
+            <p className="portada__nota" data-reveal>
+              Tus clientes no crean cuenta. Tú no contestas un solo mensaje.
+            </p>
+          </div>
+
+          <figure className="libreta" aria-label="Así se ve la agenda del día en Cupo">
+            <div className="hoja">
+              <header className="hoja__cabeza">
+                <div>
+                  <p className="hoja__dia">Viernes 23 de octubre</p>
+                  <p className="hoja__lugar">Barbería El Parche</p>
                 </div>
-                <ol className="citas">
-                  {CITAS.map((c) => (
-                    <li key={c.quien} className={`cita cita--${c.tono}`}>
-                      <span className="cita__hora">{c.hora}</span>
-                      <span className="cita__quien">
-                        <b>{c.quien}</b>
-                        <span>{c.que}</span>
-                      </span>
-                      <span className={`estado estado--${c.tono}`}>{c.estado}</span>
-                    </li>
-                  ))}
-                </ol>
+                <p className="hoja__cuenta">
+                  <b>5</b> citas
+                </p>
+              </header>
+              <div className="hoja__cuerpo">
+                {RENGLONES.map((r, i) => (
+                  <span key={r} className="hoja__hora" style={{ gridRow: i + 1 }}>
+                    {r.endsWith(":00") || r.endsWith(":30") ? r : ""}
+                  </span>
+                ))}
+                {ENTRADAS.map((e) => (
+                  <div key={e.quien} className={`entrada entrada--${e.tono}`} style={{ gridRow: `${e.fila} / span ${e.largo}` }}>
+                    <p className="entrada__quien">{e.quien}</p>
+                    <p className="entrada__que">{e.que}</p>
+                    {e.sello && <span className="sello">{e.sello}</span>}
+                  </div>
+                ))}
               </div>
             </div>
-          </div>
-        </div>
+            <figcaption className="papelito">
+              <span>Nueva reserva</span>
+              Laura Gómez, sábado a las 10:00 a. m.
+            </figcaption>
+          </figure>
+        </section>
       </div>
 
       <main>
@@ -341,7 +305,7 @@ export default function Inicio() {
                 Cada cita aparta sus bloques de 15 minutos en la misma transacción que la guarda. Si otro cliente tomó cualquiera de esos bloques un
                 instante antes, DynamoDB cancela todo y el segundo ve las horas que siguen libres.
               </p>
-              <a className="boton boton--vidrio" href={GITHUB} target="_blank" rel="noopener noreferrer">
+              <a className="boton boton--linea" href={GITHUB} target="_blank" rel="noopener noreferrer">
                 Ver el código en GitHub
               </a>
             </div>
@@ -385,8 +349,6 @@ export default function Inicio() {
         </section>
 
         <section className="final" aria-labelledby="t-final">
-          <Seda className="seda" centro={[0.5, 0.2]} giro={-0.3} />
-          <div className="final__velo" aria-hidden="true" />
           <div className="final__dentro" data-reveal>
             <h2 id="t-final">
               Tu próxima cita, <em>sin un solo mensaje.</em>

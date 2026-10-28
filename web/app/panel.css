@@ -1,4 +1,4 @@
-/* Panel del dueño: menú a la izquierda, oscuro como la portada, y el trabajo en claro a la derecha. */
+/* Panel del dueño: menú a la izquierda en tinta y el trabajo sobre papel, como la libreta de la portada. */
 
 .panel {
   display: grid;
@@ -14,8 +14,8 @@
   flex-direction: column;
   gap: 1.5rem;
   padding: 1.25rem 0.9rem;
-  background: #0f0c24;
-  color: #d9d5ee;
+  background: #1a1714;
+  color: #e4dccd;
 }
 
 .panel__arriba {
@@ -59,7 +59,7 @@
 }
 
 .panel__negocio a {
-  color: #b9a6ff;
+  color: #e8b7be;
   font-size: 0.8rem;
   text-decoration: none;
 }
@@ -75,7 +75,7 @@
   width: 38px;
   height: 38px;
   border-radius: 10px;
-  background: linear-gradient(135deg, #6a4cf0, #a48bff);
+  background: #8c1c2b;
   color: #fff;
   font-size: 0.85rem;
   font-weight: 650;
@@ -103,7 +103,7 @@
   min-height: 40px;
   padding: 0 0.75rem;
   border-radius: 9px;
-  color: #a9a4c4;
+  color: #b3a999;
   font-weight: 500;
   font-size: 0.95rem;
   text-decoration: none;
@@ -122,9 +122,9 @@
 }
 
 .panel__nav a[aria-current="page"] {
-  background: rgb(140 107 255 / 0.18);
+  background: rgb(255 255 255 / 0.08);
   color: #fff;
-  box-shadow: inset 2px 0 0 #8c6bff;
+  box-shadow: inset 2px 0 0 #c4495a;
 }
 
 .panel__pie {
@@ -139,14 +139,14 @@
   padding: 0.8rem;
   border-radius: var(--r-sm);
   background: rgb(255 255 255 / 0.04);
-  color: #a9a4c4;
+  color: #b3a999;
   font-size: 0.8rem;
   line-height: 1.45;
 }
 
 .panel__ejemplo .btn--texto {
   justify-self: start;
-  color: #b9a6ff;
+  color: #e8b7be;
   font-size: 0.82rem;
 }
 
@@ -269,8 +269,8 @@
 }
 
 .vista__titulo {
-  font-size: 1.85rem;
-  letter-spacing: -0.03em;
+  font: 400 2.2rem/1.05 "Newsreader Variable", Georgia, serif;
+  letter-spacing: -0.025em;
 }
 
 .vista__sub {
@@ -354,8 +354,8 @@
 }
 
 .kpis__proxima {
-  border-color: #d9d0ff !important;
-  background: linear-gradient(180deg, #f7f4ff, #fff) !important;
+  border-color: #e5c4c8 !important;
+  background: linear-gradient(180deg, #faf0ee, #fffdf9) !important;
 }
 
 .kpis__proxima dd {
@@ -385,7 +385,7 @@
   height: 6px;
   margin: 0.25rem 0 0.1rem;
   border-radius: 99px;
-  background: #eeecf5;
+  background: #ece5d8;
   overflow: hidden;
 }
 
@@ -452,14 +452,14 @@
   height: 4px;
   margin-top: 0.35rem;
   border-radius: 99px;
-  background: #efedf6;
+  background: #ece5d8;
   overflow: hidden;
 }
 
 .semana__barra i {
   display: block;
   height: 100%;
-  background: #b9a6ff;
+  background: #c99aa1;
   transition: width 0.4s;
 }
 
@@ -523,11 +523,11 @@
 }
 
 .cita:hover {
-  background: #fbfaff;
+  background: #fbf7f0;
 }
 
 .cita.is-ahora {
-  background: #f7f4ff;
+  background: #faf0ee;
 }
 
 .cita.is-ahora::before {
@@ -548,7 +548,7 @@
 
 .cita--cancelada .avatar,
 .cita--atendida .avatar {
-  background: #f0eff4;
+  background: #eee8dd;
   color: var(--faint);
 }
 
@@ -629,7 +629,7 @@
 }
 
 .estado--cancelada {
-  background: #f0eff4;
+  background: #eee8dd;
   color: var(--muted);
 }
 
@@ -719,7 +719,7 @@
 }
 
 .barras__guia {
-  stroke: #eeecf4;
+  stroke: #eee7db;
 }
 
 .barras__base {
@@ -732,11 +732,11 @@
 }
 
 .barras__barra {
-  fill: #cfc4ff;
+  fill: #e3c3c8;
 }
 
 .barras__barra:hover {
-  fill: #b9a6ff;
+  fill: #d3a3aa;
 }
 
 .barras__hoy {
@@ -781,7 +781,7 @@
 }
 
 .ranking .medidor i {
-  background: linear-gradient(90deg, #8c6bff, #6a4cf0);
+  background: #8c1c2b;
 }
 
 /* Tablas y editores */

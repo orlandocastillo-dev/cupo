@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import "@fontsource-variable/outfit";
+import "@fontsource-variable/newsreader";
 import "@fontsource-variable/newsreader/wght-italic.css";
 import "./globals.css";
 import "./reservar.css";
@@ -12,7 +13,7 @@ export const metadata: Metadata = {
   icons: { icon: "/icono.svg" },
 };
 
-export const viewport: Viewport = { themeColor: "#07061a", width: "device-width", initialScale: 1 };
+export const viewport: Viewport = { themeColor: "#f5f0e6", width: "device-width", initialScale: 1 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (

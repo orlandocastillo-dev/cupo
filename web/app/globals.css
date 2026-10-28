@@ -1,16 +1,16 @@
-/* Cupo por dentro: claro y tranquilo, con el violeta de la portada y la misma letra (Outfit). Es una herramienta de trabajo. */
+/* Cupo por dentro: claro y tranquilo, con el papel, la tinta y el rojo vino de la portada, y la misma letra (Outfit). Es una herramienta de trabajo. */
 
 :root {
-  --bg: #f6f6f9;
-  --surface: #ffffff;
-  --ink: #15131f;
-  --muted: #625f73;
-  --faint: #8f8ca0;
-  --line: #e8e7ef;
-  --line-strong: #d3d1dd;
-  --primario: #6a4cf0;
-  --primario-fuerte: #5236d6;
-  --primario-suave: #efebff;
+  --bg: #f6f2ea;
+  --surface: #fffdf9;
+  --ink: #1a1714;
+  --muted: #5f584e;
+  --faint: #948b7e;
+  --line: #e6dfd2;
+  --line-strong: #d2c8b7;
+  --primario: #8c1c2b;
+  --primario-fuerte: #6f1421;
+  --primario-suave: #f4e4e2;
   --ambar: #9a5700;
   --ambar-suave: #fdf1e0;
   --rojo: #b42318;
@@ -248,7 +248,7 @@ img {
   border: 1px solid var(--line);
   border-radius: var(--r);
   background: var(--surface);
-  box-shadow: 0 1px 2px rgb(20 16 40 / 0.04);
+  box-shadow: 0 1px 2px rgb(40 30 20 / 0.05);
 }
 
 .cargando {
@@ -259,7 +259,7 @@ img {
 
 .esqueleto {
   border-radius: var(--r-sm);
-  background: linear-gradient(90deg, #eceef0 0%, #f6f7f8 50%, #eceef0 100%) 0 0 / 200% 100%;
+  background: linear-gradient(90deg, #ece5d8 0%, #f6f1e8 50%, #ece5d8 100%) 0 0 / 200% 100%;
   animation: brillo 1.2s linear infinite;
 }
 
