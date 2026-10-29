@@ -10,7 +10,7 @@ import "./inicio.css";
 export const metadata: Metadata = {
   title: { default: "Cupo | Reservas en línea para tu negocio", template: "%s | Cupo" },
   description: "Tus clientes ven tus horarios libres y reservan solos. Para barberías, consultorios, canchas y spas.",
-  icons: { icon: "/icono.svg" },
+  icons: { icon: "/icono-cupo.svg", apple: "/icono-cupo.svg" },
 };
 
 export const viewport: Viewport = { themeColor: "#fafaf7", width: "device-width", initialScale: 1 };
